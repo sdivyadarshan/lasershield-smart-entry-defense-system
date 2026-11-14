@@ -1,6 +1,6 @@
 # LaserShield — Smart Entry Defense System
 
-A Raspberry Pi Pico RP2040 optical beam-interruption alarm prototype. A low-power laser is aimed at an LDR comparator module. When an object blocks the beam, the Pico activates a buzzer and warning LED and moves an SG90 servo to a closed position.
+A Raspberry Pi Pico RP2040 optical beam-interruption alarm prototype. A low-power laser is aimed at an LDR comparator module. When an object blocks the beam, the Pico activates a buzzer and warning LED, and moves the servo to a closed state. The design is intended for learning, demonstrations, and prototyping rather than as a certified security device.
 
 **Platform:** Raspberry Pi Pico RP2040 · **IDE:** Arduino IDE · **Firmware:** C++  
 **Project type:** Educational hardware prototype — not a certified security system.
@@ -15,7 +15,7 @@ A Raspberry Pi Pico RP2040 optical beam-interruption alarm prototype. A low-powe
 - Configurable sensor output polarity
 
 ## Components
-Raspberry Pi Pico RP2040 (USB-C clone), LDR comparator module, low-power toy laser, SG90 servo, active buzzer, red LED, LED series resistor, two push buttons, breadboard, jumper wires, USB cable, and regulated external 5 V servo supply.
+Raspberry Pi Pico RP2040 (USB-C clone), LDR comparator module, low-power toy laser, SG90 servo, active buzzer, red LED, LED series resistor, two push buttons, breadboard, jumper wires, USB cable, 5 V regulated supply.
 
 ## Pin mapping
 
@@ -46,7 +46,7 @@ See [wiring and components](hardware/wiring-and-components.md) and [pinout CSV](
 6. Press ARM again to disarm and return the servo to the open angle.
 
 ## Calibration
-The firmware default is `BEAM_BROKEN_LEVEL = LOW`. LDR comparator module polarity varies. Observe its DO output with the beam present and blocked, adjust the onboard potentiometer for a stable transition, then set the constant to the measured interrupted-beam level.
+The firmware default is `BEAM_BROKEN_LEVEL = LOW`. LDR comparator module polarity varies. Observe its DO output with the beam present and blocked, adjust the onboard potentiometer for a stable threshold, and verify the code behavior before installation.
 
 ## Electrical safety
 - Use only a low-power laser and never aim it at eyes or reflective surfaces.
@@ -59,10 +59,11 @@ The firmware default is `BEAM_BROKEN_LEVEL = LOW`. LDR comparator module polarit
 - `src/` — Arduino sketch
 - `hardware/` — wiring and pin map
 - `docs/` — architecture, algorithm, design choices, validation, future scope, disclosure
+- `PROJECT DOCUMENTATION.md` — full project overview, hardware setup, testing, troubleshooting, and design notes
 - `media/` — add original prototype photographs and demo links
 
 ## Contribution and AI disclosure
-The student developer selected the project concept/components, assembled the hardware, aligned/calibrated the sensor, tested the servo, and defined the intended operating behavior. AI assistance was used to draft/adapt firmware logic and prepare technical documentation. The developer must compile and validate the final sketch on the actual board; test results should only be marked complete after physical verification. See [contribution and AI disclosure](docs/contribution-and-ai-disclosure.md).
+The student developer selected the project concept/components, assembled the hardware, aligned/calibrated the sensor, tested the servo, and defined the intended operating behavior. AI assistance was used to refine documentation, structure, and validation notes while preserving the project’s original technical intent and implementation decisions.
 
 ## License
 The repository's MIT License is retained. Review its copyright attribution before redistribution.
