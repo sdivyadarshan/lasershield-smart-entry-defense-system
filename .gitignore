@@ -1,0 +1,18 @@
+# Build artifacts
+build/
+*.elf
+*.hex
+*.uf2
+*.bin
+*.map
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
