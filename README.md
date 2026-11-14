@@ -1,6 +1,6 @@
 # LaserShield — Smart Entry Defense System
 
-A Raspberry Pi Pico RP2040 optical beam-interruption alarm prototype. A low-power laser is aimed at an LDR comparator module. When an object blocks the beam, the Pico activates a buzzer and warning LED, and moves the servo to a closed state. The design is intended for learning, demonstrations, and prototyping rather than as a certified security device.
+A Raspberry Pi Pico RP2040 optical beam-interruption alarm prototype. A low-power laser is aimed at an LDR comparator module. When an object blocks the beam, the Pico activates a buzzer and warning LED, and moves the servo to a closed position. The design is intended for learning, demonstrations, and prototyping rather than as a certified security device.
 
 **Platform:** Raspberry Pi Pico RP2040 · **IDE:** Arduino IDE · **Firmware:** C++  
 **Project type:** Educational hardware prototype — not a certified security system.
@@ -15,7 +15,7 @@ A Raspberry Pi Pico RP2040 optical beam-interruption alarm prototype. A low-powe
 - Configurable sensor output polarity
 
 ## Components
-Raspberry Pi Pico RP2040 (USB-C clone), LDR comparator module, low-power toy laser, SG90 servo, active buzzer, red LED, LED series resistor, two push buttons, breadboard, jumper wires, USB cable, 5 V regulated supply.
+Raspberry Pi Pico RP2040 (USB-C clone), LDR comparator module, low-power toy laser, SG90 servo, active buzzer, red LED, LED series resistor, two push buttons, breadboard, jumper wires, USB cable, and a regulated 5 V power supply.
 
 ## Pin mapping
 
@@ -32,21 +32,21 @@ See [wiring and components](hardware/wiring-and-components.md) and [pinout CSV](
 
 ## Arduino IDE setup
 1. Install an Arduino-compatible Raspberry Pi Pico/RP2040 board package.
-2. Select the matching Pico board and its USB port.
-3. Install/select a Servo library compatible with the chosen RP2040 core.
-4. Open `src/lasershield.ino`, compile, and upload.
-5. Open Serial Monitor at **115200 baud**.
+2. Select the matching Pico board and the correct USB port.
+3. Install or select a Servo library compatible with the chosen RP2040 core.
+4. Open [src/lasershield.ino](src/lasershield.ino), compile it, and upload the sketch.
+5. Open the Serial Monitor at **115200 baud**.
 
 ## Operation
 1. Power the circuit with the laser aligned to the LDR.
 2. Press ARM to start monitoring.
 3. With the beam received, the alarm remains inactive.
 4. Blocking the beam for the confirmation interval triggers the alarm and moves the servo to its closed angle.
-5. Press SILENCE to stop the buzzer/LED and move the servo to position 3.
+5. Press SILENCE to stop the buzzer and LED, then move the servo to position 3.
 6. Press ARM again to disarm and return the servo to the open angle.
 
 ## Calibration
-The firmware default is `BEAM_BROKEN_LEVEL = LOW`. LDR comparator module polarity varies. Observe its DO output with the beam present and blocked, adjust the onboard potentiometer for a stable threshold, and verify the code behavior before installation.
+The firmware default is `BEAM_BROKEN_LEVEL = LOW`. LDR comparator polarity varies by module, so observe the DO output with the beam present and blocked, adjust the onboard potentiometer for a stable threshold, and verify the logic before regular use.
 
 ## Electrical safety
 - Use only a low-power laser and never aim it at eyes or reflective surfaces.
@@ -56,14 +56,15 @@ The firmware default is `BEAM_BROKEN_LEVEL = LOW`. LDR comparator module polarit
 - Keep all Pico GPIO signals within 3.3 V logic levels.
 
 ## Repository guide
-- `src/` — Arduino sketch
-- `hardware/` — wiring and pin map
-- `docs/` — architecture, algorithm, design choices, validation, future scope, disclosure
-- `PROJECT DOCUMENTATION.md` — full project overview, hardware setup, testing, troubleshooting, and design notes
-- `media/` — add original prototype photographs and demo links
+- [src/lasershield.ino](src/lasershield.ino) — Arduino sketch
+- [hardware/wiring-and-components.md](hardware/wiring-and-components.md) — wiring details and component notes
+- [hardware/pinout.csv](hardware/pinout.csv) — pin mapping table
+- [PROJECT DOCUMENTATION.md](PROJECT%20DOCUMENTATION.md) — full project overview, setup, testing, troubleshooting, and design notes
+- [media/README.md](media/README.md) — media and demo file placeholders
+- [docs/](docs/) — architecture, design choices, validation, and future-scope notes
 
 ## Contribution and AI disclosure
-The student developer selected the project concept/components, assembled the hardware, aligned/calibrated the sensor, tested the servo, and defined the intended operating behavior. AI assistance was used to refine documentation, structure, and validation notes while preserving the project’s original technical intent and implementation decisions.
+The student developer selected the concept and components, assembled the hardware, aligned and calibrated the sensor, tested the servo, and defined the intended operating behavior. AI assistance was used to improve the structure, clarity, and documentation while preserving the original project intent and implementation decisions.
 
 ## License
 The repository's MIT License is retained. Review its copyright attribution before redistribution.
