@@ -1,0 +1,11 @@
+Signal,Component terminal,Pico physical pin,GPIO,Notes
+LDR module,DO,1,GP0,Use 3.3V-safe digital output
+LDR module,VCC,36,3V3 OUT,Power module only if its specifications support 3.3V
+LDR module,GND,Any GND,GND,Common ground
+Arm button,One terminal,2,GP1,Other terminal to GND
+Silence button,One terminal,4,GP2,Other terminal to GND
+Servo signal,Orange/yellow,5,GP3,External regulated 5V servo supply
+Buzzer control,Driver/control input,6,GP4,Use transistor driver when required
+Red LED,Anode through resistor,7,GP5,Cathode to GND
+Servo V+,Red wire,External supply,+5V,Do not connect to GPIO
+Servo GND,Brown/black,External supply GND,GND,Connect to Pico GND
